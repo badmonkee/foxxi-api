@@ -1,0 +1,6 @@
+type: object
+properties:
+  docs:
+    type: array
+    items:
+      $ref: './Doc.yaml'

@@ -1,0 +1,152 @@
+openapi: 3.0.0
+info:
+  description: API-Definition of Foxxi
+  version: 1.0.0
+  title: Foxxi-API
+servers:
+  - url: localhost
+paths:
+  /account/register:
+    post:
+      summary: Create an account.
+      operationId: accountRegister
+      requestBody:
+          required: true
+          content:
+            application/json:
+              schema:
+                $ref: './definitions/AccountRegistration.yaml'
+      responses:
+        '200':
+          description: ok
+        '400':
+          description: If one of the parameters is not set or invalid.
+  /account/login:
+    post:
+      summary: logs in a previously registered user.
+      operationId: accountLogin
+      requestBody:
+          required: true
+          content:
+            application/json:
+              schema:
+                $ref: './definitions/AccountLogin.yaml'
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                $ref: './definitions/AccountLoginSuccess.yaml'
+        '403':
+          description: If provided credentials are incorrect.
+  /account/reset:
+    post:
+      summary: Request a new password
+      operationId: accountReset
+      requestBody:
+          required: true
+          content:
+            application/json:
+              schema:
+                $ref: './definitions/AccountReset.yaml'
+      responses:
+        '200':
+          description: Will always return a 200 even though the email does not exist.
+  /doc/search:
+    post:
+      summary: Searches for doctors using some filters.
+      description: Searches for doctors using some filters.
+      operationId: docSearch
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: './definitions/DocSearch.yaml'
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                $ref: './definitions/DocSearchSuccess.yaml'
+        '401':
+          description: If the JWT expired or is invalid.
+      security:
+        - bearer: []
+  /pet/create:
+    post:
+      summary: Creates a new pet.
+      description: Creates a new pet.
+      operationId: petCreate
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: './definitions/PetCreate.yaml'
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                $ref: './definitions/Pet.yaml'
+        '401':
+          description: If the JWT expired or is invalid.
+      security:
+        - bearer : []
+  /pet/edit:
+    post:
+      summary: Edits a pet.
+      description: Edits a pet. Will only update the fields that are set.
+      operationId: petEdit
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: './definitions/Pet.yaml'
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                $ref: './definitions/Pet.yaml'
+        '401':
+          description: If the JWT expired or is invalid.
+      security:
+        - bearer: []
+  /profile/edit:
+    post:
+      summary: Edits a user profile.
+      description: Edits a user profile. Will only update the fields that are set.
+      operationId: profileEdit
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: './definitions/Profile.yaml'
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                $ref: './definitions/Profile.yaml'
+        '401':
+          description: If the JWT expired or is invalid.
+      security:
+        - bearer: []
+components:
+  securitySchemes:
+    basic:
+      type: http
+      scheme: basic
+    bearer:
+      type: http
+      bearerFormat: JWT
+      scheme: bearer

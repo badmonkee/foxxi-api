@@ -1,0 +1,24 @@
+type: object
+description: The payload of the JWT
+properties:
+  header:
+    type: object
+    properties:
+      alg:
+        type: string
+        default: HS256
+      typ:
+        type: string
+        default: JWT
+  payload:
+    type: object
+    properties:
+      sub:
+        type: string
+        description: The accountId
+      exp:
+        type: integer
+        format: utc-millisec
+        description: when the token expires
+  signature:
+    type: string

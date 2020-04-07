@@ -1,0 +1,15 @@
+type: object
+properties:
+  id:
+    type: integer
+    format: int32
+  name:
+    type: string
+  address:
+    type: string
+  geoLocation:
+    type: string
+  phone:
+    type: string
+  website:
+    type: string

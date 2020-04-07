@@ -1,0 +1,14 @@
+type: object
+properties:
+  profile:
+    $ref: './Profile.yaml'
+  pets:
+    type: array
+    items:
+      $ref: './Pet.yaml'
+  token:
+    $ref: './JWT.yaml'
+  petTypes:
+    type: array
+    items:
+      type: string

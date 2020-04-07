@@ -1,0 +1,9 @@
+type: object
+properties:
+  petTypes:
+    type: array
+    items:
+      type: string
+  distance:
+    type: integer
+    format: int32
