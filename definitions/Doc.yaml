@@ -13,3 +13,5 @@ properties:
     type: string
   website:
     type: string
+  premium:
+    type: boolean
