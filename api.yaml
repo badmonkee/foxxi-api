@@ -4,7 +4,7 @@ info:
   version: 1.0.0
   title: Foxxi-API
 servers:
-  - url: 127.0.0.1:5000
+  - url: localhost
 paths:
   /account/register:
     post:
