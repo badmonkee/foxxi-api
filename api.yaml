@@ -5,6 +5,10 @@ info:
   title: Foxxi-API
 servers:
   - url: localhost
+    variables:
+      port:
+        default: '5000'
+
 paths:
   /account/register:
     post:
