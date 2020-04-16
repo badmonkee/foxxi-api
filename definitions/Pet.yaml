@@ -5,6 +5,8 @@ properties:
     format: int32
   name:
     type: string
+  type:
+    $ref: './PetType.yaml'
   image:
     type: string
   dateOfBirth:

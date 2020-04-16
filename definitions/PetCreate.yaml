@@ -2,6 +2,8 @@ type: object
 properties:
   name:
     type: string
+  type:
+    $ref: './PetType.yaml'
   image:
     type: string
   dateOfBirth:

@@ -7,7 +7,8 @@ properties:
     items:
       $ref: './Pet.yaml'
   token:
-    $ref: './JWT.yaml'
+    type: string
+    description: 'See JWT.yaml for format'
   petTypes:
     type: array
     items:
